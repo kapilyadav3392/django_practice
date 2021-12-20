@@ -1,0 +1,41 @@
+
+<body>
+
+ <form action="" method="POST" enctype="multipart/form-data">
+    <div>{% csrf_token %}
+    NAme:<input type="text" name="name" value="{{result.name}}" required >
+    
+
+    </div>
+    <br>
+    <div>
+    Birthdate:<input type="date" name="Birthday" value="{{result.Birthdate}}" required>
+    
+    </div>
+
+   
+    <br>
+
+
+
+    <br>
+    <div>
+        <label for="avatar">Choose a profile picture:</label>
+        <input type="file"
+        id="avatar" name="avatar"
+        accept="image/png, image/jpeg">
+ 
+
+    </div>
+    <br>
+    <!-- <br>
+    <div>
+    Email:<input type="email" name="email" >
+
+    </div>
+    <br> -->
+    <input type="submit" value="Update">
+
+    
+</body>
+</html>

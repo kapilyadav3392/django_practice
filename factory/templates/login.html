@@ -1,0 +1,48 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{
+            background-color: aquamarine;
+        }
+        .yes{
+            background-color:yellow;
+            border: 5px solid black;
+            padding: 40px 60px 20px 22px ;
+            margin: 10px;
+            border-radius: 20px;
+            width: 200px;
+        }
+
+    </style>
+
+</head>
+<body>
+ <form action="" method="POST">
+    <div>{% csrf_token %}
+    username:<input type="text" name="username"  >
+
+    </div>
+    <br>
+    <div>
+    password:<input type="password" name="password" >
+    
+    </div>
+    <br>
+    <!-- <br>
+    <div>
+    Email:<input type="email" name="email" >
+
+    </div>
+    <br> -->
+    <input type="submit" value="login">
+    <br>
+
+    <a href="/signup"><input type="button" value="signup"></a>

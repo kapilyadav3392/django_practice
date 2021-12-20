@@ -1,0 +1,111 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>.search{
+        float: left;
+        color: white;
+        padding: 11px 22px;
+      
+        
+    }</style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://www.youtube.com/watch?v=JxzZxdht-XY">
+    <link rel="stylesheet" href="assets/plugin/datatables/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="{assets/plugin/datatables/dataTables.bootstrap5.min.css">
+    <!-- project css file  -->
+    <link rel="stylesheet" href="assets/css/my-task.style.min.css">
+</head>
+<body>
+    
+
+    <div class="search">
+        <input type="search" id="search" placeholder="Search">
+    </div>
+    
+    <div class="col-auto d-flex w-sm-100">
+        <a href="{% url 'add' %}"><button type="button" class="btn btn-dark btn-set-task w-sm-100" data-bs-toggle="modal" data-bs-target="#tickadd" ><i class="icofont-plus-circle me-2 fs-6"></i>Add   </button></a>
+    </div>
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            
+            <tr>
+                <th>Ticket Id</th>
+                <th>Name</th>
+                <th>Birthdate</th>
+                <th>image</th>
+                <th>Action</th>
+                
+                
+                
+            </tr>
+        </thead>
+        {% for i in result  %}          
+        <tr>
+            <td>
+                {{i.id}}
+            </td>
+            <td>
+                {{i.name}}
+            </td>
+            <td>
+                {{i.Birthdate}}
+
+            </td>
+            <td>
+                <img src="/media/{{i.image}}" alt="">
+
+            </td>
+            
+            
+            <td>
+                <a href="/update{{i.id}}"><input type="button" id="edit_button1" value="Edit" class="edit" ></a>
+                <!-- <input type="button" id="save_button1" value="Save" class="save" onclick="save_row('1')"> -->
+                <a href="/delete{{i.id}}"><input type="button" value="Delete" class="delete" ></a>
+                <a href="/details{{i.id}}"><input type="button" value="Details" class="detail"></a>
+            </td>
+
+        </tr>
+        
+
+       
+        {% comment %} <img src="{{i.image}}" alt=""> {% endcomment %}
+        {% endfor %}  
+        
+        <br>
+        <div>
+            <a href="/logout/"> <input type="submit" value="logout"></a>
+         </div>
+        
+      
+        
+    </table>
+    
+   
+    <script>
+
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+
+        $('#myTable').DataTable( {
+    dom: 'Bfrtip',
+    buttons: [
+        'colvis',
+        'excel',
+        'print'
+    ]
+} );
+        </script>
+</body>
+</html>
+
+
